@@ -24,8 +24,11 @@ from . import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home, name='home'),  # Now this is your root URL
-    path('about/', views.about, name='about'),
-    path('contact/', views.contact, name='contact'),
+    path('ufc/', views.about, name='ufc'),
+    path('sumo/', views.contact, name='sumo'),
+    path('boxing/', views.boxing, name='boxing'),
+    path('wrestling/', views.wrestling, name='wrestling'),
+    path('kickboxing/', views.kickboxing, name='kickboxing'),
     path('profile/', views.profile, name='profile'),
     path('login/', auth_views.LoginView.as_view(), name='login'),
     path('logout/', auth_views.LogoutView.as_view(), name='logout'),

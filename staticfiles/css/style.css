@@ -1,0 +1,42 @@
+/* static/css/style.css */
+
+body {
+    font-family: Arial, Helvetica, sands-serif;
+    font-size: 5px;
+}
+
+
+.navbar {
+    padding-top: 0.2rem !important;    /* Reduce top padding */
+    padding-bottom: 0.2rem !important; /* Reduce bottom padding */
+    min-height: 30px;                 /* Set minimum height */
+}
+
+
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding-top: 0 !important;    /* Remove brand padding */
+    padding-bottom: 0 !important;
+}
+
+.nav-link {
+    padding-top: 0.2rem !important;    /* Reduce link padding */
+    padding-bottom: 0.2rem !important;
+}
+
+
+.display-6 {
+    font-size: 1.5rem !important;
+    font-weight: 600;
+}
+
+.lead {
+    font-size: 1rem !important;
+}
+
+.rounded {
+    border-radius: 0.2rem !important;
+
+
+/* Add any other custom styles here */

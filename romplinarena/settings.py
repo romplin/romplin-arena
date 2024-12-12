@@ -25,8 +25,20 @@ SECRET_KEY = 'django-insecure-@_0@!5rnlhcgs5gdxa8=jwdlu#u!0&%21)ij5nc614%hs^yvu1
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
 
+# Add at the top with other imports
+import os
+
+# Update ALLOWED_HOSTS
+ALLOWED_HOSTS = [
+    'af0c4b6da8a9e458696b14bf6d7e1991-517981759.us-east-1.elb.amazonaws.com',
+    'romplin-arena.com',
+    'www.romplin-arena.com',
+    '52.2.242.28',
+    'localhost',
+    '127.0.0.1',
+    '*'
+]
 
 # Application definition
 

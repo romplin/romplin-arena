@@ -1,0 +1,16 @@
+{
+    "Changes": [
+        {
+            "Action": "UPSERT",
+            "ResourceRecordSet": {
+                "Name": "romplin-arena.com",
+                "Type": "A",
+                "AliasTarget": {
+                    "HostedZoneId": "Z35SXDOTRQ7X7K",
+                    "DNSName": "af0c4b6da8a9e458696b14bf6d7e1991-517981759.us-east-1.elb.amazonaws.com",
+                    "EvaluateTargetHealth": true
+                }
+            }
+        }
+    ]
+}

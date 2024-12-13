@@ -18,4 +18,4 @@ COPY . .
 RUN python manage.py collectstatic --noinput
 
 # Run the application
-CMD ["gunicorn", "romplinarena.wsgi:application", "--bind", "0.0.0.0:8000"]
+CMD ["gunicorn", "romplinarena.wsgi:application", "--bind", "0.0.0.0:8000", "--timeout", "120", "--workers", "3", "--keep-alive", "5", "--max-requests", "1000"]

@@ -40,6 +40,21 @@ ALLOWED_HOSTS = [
     '*'
 ]
 
+CSRF_TRUSTED_ORIGINS = [
+    'http://romplin-arena.com',
+    'http://www.romplin-arena.com',
+    'https://romplin-arena.com',
+    'https://www.romplin-arena.com',
+]
+
+CSRF_COOKIE_SECURE = False  # Set to True if using HTTPS
+CSRF_COOKIE_DOMAIN = '.romplin-arena.com'
+SESSION_COOKIE_DOMAIN = '.romplin-arena.com'
+
+# Increase timeouts
+CONN_MAX_AGE = 120
+
+
 # Application definition
 
 INSTALLED_APPS = [

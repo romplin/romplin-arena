@@ -16,15 +16,15 @@
         html {
             font-size: 18px;
         }
-    body {
+}
+            body {
     flex-direction: column;
 }
 
 .navbar {
     width: 100%;
     height: auto;
-    position: fixed;
-    padding: 1rem;
+    background-color: #333;
 }
 
 .nav-container {
@@ -50,10 +50,18 @@
 }
 
 @media (max-width: 768px) {
+    .navbar {
+        transform: translateY(-100%);
+    }
+
+    .navbar.active {
+        transform: translateY(0);
+    }
+
     .nav-container {
         flex-direction: column;
     }
-    
+
     .nav-links {
         flex-direction: column;
     }

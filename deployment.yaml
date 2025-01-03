@@ -15,6 +15,7 @@ spec:
       containers:
       - name: romplin-arena
         image: 747147941188.dkr.ecr.us-east-1.amazonaws.com/romplin-arena:latest
+        imagePullPolicy: Always   
         env:
         - name: ALLOWED_HOSTS
           valueFrom:

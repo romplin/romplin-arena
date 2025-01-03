@@ -29,6 +29,13 @@ DEBUG = True
 # Add at the top with other imports
 import os
 
+#SSL
+SECURE_SSL_REDIRECT = True
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
+
+
 # Update ALLOWED_HOSTS
 ALLOWED_HOSTS = [
     'af0c4b6da8a9e458696b14bf6d7e1991-517981759.us-east-1.elb.amazonaws.com',

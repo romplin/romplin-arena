@@ -1,30 +1,39 @@
 /* static/css/style.css */
 
 body {
-    font-family: Arial, Helvetica, sands-serif;
-    font-size: 5px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;  /* More readable base font size */
 }
-
 
 .navbar {
-    padding-top: 0.2rem !important;    /* Reduce top padding */
-    padding-bottom: 0.2rem !important; /* Reduce bottom padding */
-    min-height: 30px;                 /* Set minimum height */
+    padding-top: 0.5rem !important;
+    padding-bottom: 0.5rem !important;
+    min-height: 50px;  /* Slightly larger for better touch targets */
 }
-
 
 .navbar-brand {
     font-size: 1.5rem;
     font-weight: bold;
-    padding-top: 0 !important;    /* Remove brand padding */
+    padding-top: 0 !important;
     padding-bottom: 0 !important;
 }
 
 .nav-link {
-    padding-top: 0.2rem !important;    /* Reduce link padding */
-    padding-bottom: 0.2rem !important;
+    padding-top: 0.5rem !important;
+    padding-bottom: 0.5rem !important;
 }
 
+/* Mobile-specific adjustments */
+@media (max-width: 992px) {
+    .navbar-collapse {
+        max-height: 80vh;
+        overflow-y: auto;
+    }
+
+    .nav-link {
+        text-align: center;  /* Center links in mobile menu */
+    }
+}
 
 .display-6 {
     font-size: 1.5rem !important;
@@ -37,6 +46,17 @@ body {
 
 .rounded {
     border-radius: 0.2rem !important;
+}
 
+/* Ensure mobile menu is fully usable */
+.navbar-toggler {
+    border: none;
+    padding: 0.5rem;
+}
 
-/* Add any other custom styles here */
+/* Additional mobile-friendly touches */
+@media (max-width: 576px) {
+    .navbar-brand {
+        font-size: 1.2rem;  /* Slightly smaller on very small screens */
+    }
+}

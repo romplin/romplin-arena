@@ -33,4 +33,12 @@ urlpatterns = [
     path('login/', auth_views.LoginView.as_view(), name='login'),
     path('logout/', auth_views.LogoutView.as_view(), name='logout'),
     path('register/', views.register, name='register'),
+    # UFC related paths
+path('ufc/rankings/', views.ufc_rankings, name='ufc_rankings'),
+path('ufc/news/', views.ufc_news, name='ufc_news'),
+path('ufc/events/', views.ufc_events, name='ufc_events'),
+
+# Sumo related paths
+path('sumo/rankings/', views.sumo_rankings, name='sumo_rankings'),
+path('sumo/tournaments/', views.sumo_tournaments, name='sumo_tournaments'),
 ]

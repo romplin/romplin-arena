@@ -24,3 +24,20 @@ def profile(request):
 
 def register(request):
     return render(request, 'register.html')
+
+# UFC related views
+def ufc_rankings(request):
+    return render(request, 'ufc/rankings.html')
+
+def ufc_news(request):
+    return render(request, 'ufc/news.html')
+
+def ufc_events(request):
+    return render(request, 'ufc/events.html')
+
+# Sumo related views
+def sumo_rankings(request):
+    return render(request, 'sumo/rankings.html')
+
+def sumo_tournaments(request):
+    return render(request, 'sumo/tournaments.html')

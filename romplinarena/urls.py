@@ -24,8 +24,8 @@ from . import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home, name='home'),  # Now this is your root URL
-    path('ufc/', views.about, name='ufc'),
-    path('sumo/', views.contact, name='sumo'),
+    path('ufc/', views.ufc, name='ufc'),
+    path('sumo/', views.sumo, name='sumo'),
     path('boxing/', views.boxing, name='boxing'),
     path('wrestling/', views.wrestling, name='wrestling'),
     path('kickboxing/', views.kickboxing, name='kickboxing'),

@@ -4,11 +4,11 @@ from django.shortcuts import render
 def home(request):
     return render(request, 'home.html')
 
-def about(request):
-    return render(request, 'ufc.html')
+def ufc(request):
+    return render(request, 'ufc/rankings.html')
 
-def contact(request):
-    return render(request, 'sumo.html')
+def sumo(request):
+    return render(request, 'sumo/rankings.html')
 
 def boxing(request):
     return render(request, 'boxing.html')

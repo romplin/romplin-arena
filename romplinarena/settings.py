@@ -85,9 +85,6 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-# Add these settings for whitenoise
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-]
 
 ROOT_URLCONF = 'romplinarena.urls'
 

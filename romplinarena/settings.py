@@ -11,6 +11,9 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 import os
 from pathlib import Path
+import boto3
+import json
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -18,6 +21,27 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
+
+
+import boto3
+import json
+
+def get_secret():
+    session = boto3.session.Session()
+    client = session.client(
+        service_name='secretsmanager',
+        region_name='us-east-1'
+    )
+ 
+    secret = client.get_secret_value(
+        SecretId='romplin/s3-credentials'
+    )
+    return json.loads(secret['SecretString'])
+
+secrets = get_secret()
+AWS_ACCESS_KEY_ID = secrets['AWS_ACCESS_KEY_ID']
+AWS_SECRET_ACCESS_KEY = secrets['AWS_SECRET_ACCESS_KEY']
+AWS_STORAGE_BUCKET_NAME = secrets['AWS_STORAGE_BUCKET_NAME']
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-@_0@!5rnlhcgs5gdxa8=jwdlu#u!0&%21)ij5nc614%hs^yvu1'
@@ -72,6 +96,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'whitenoise.runserver_nostatic',
+    'storages'
 ]
 
 MIDDLEWARE = [
@@ -138,8 +163,20 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # Forms
 
+
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
+
+
+# Celery Configuration
+CELERY_BROKER_URL = 'redis://localhost:6379/0'  # You'll need Redis installed
+CELERY_RESULT_BACKEND = 'redis://localhost:6379/0'
+CELERY_ACCEPT_CONTENT = ['json']
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_RESULT_SERIALIZER = 'json'
+CELERY_TIMEZONE = 'UTC'
+
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/

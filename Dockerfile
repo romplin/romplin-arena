@@ -13,7 +13,7 @@ WORKDIR /app
 # Install dependencies
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
-RUN pip install boto3 celery redi django-storages
+RUN pip install boto3 celery redis django-storages
 # Copy project
 COPY . .
 

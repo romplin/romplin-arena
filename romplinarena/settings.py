@@ -27,16 +27,27 @@ import boto3
 import json
 
 def get_secret():
-    session = boto3.session.Session()
-    client = session.client(
-        service_name='secretsmanager',
-        region_name='us-east-1'
-    )
- 
-    secret = client.get_secret_value(
-        SecretId='romplin/s3-credentials'
-    )
-    return json.loads(secret['SecretString'])
+    try:
+        session = boto3.session.Session()
+        client = session.client(
+            service_name='secretsmanager',
+            region_name='us-east-1'
+        )
+        print("AWS Session created")
+        
+        # List available secrets
+        secrets_list = client.list_secrets()
+        print("Available secrets:", secrets_list)
+        
+        secret = client.get_secret_value(
+            SecretId='romplin/s3credentials'
+        )
+        return json.loads(secret['SecretString'])
+    except Exception as e:
+        print(f"Error accessing secret: {str(e)}")
+        return {}
+
+
 
 secrets = get_secret()
 AWS_ACCESS_KEY_ID = secrets['AWS_ACCESS_KEY_ID']

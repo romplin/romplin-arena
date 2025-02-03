@@ -35,18 +35,25 @@ def get_secret():
         )
         print("AWS Session created")
         
-        # List available secrets
-        secrets_list = client.list_secrets()
-        print("Available secrets:", secrets_list)
-        
         secret = client.get_secret_value(
             SecretId='romplin/s3credentials'
         )
         return json.loads(secret['SecretString'])
     except Exception as e:
-        print(f"Error accessing secret: {str(e)}")
-        return {}
+        print(f"Warning: Using environment variables: {str(e)}")
+        return {
+            'AWS_ACCESS_KEY_ID': os.getenv('AWS_ACCESS_KEY_ID', ''),
+            'AWS_SECRET_ACCESS_KEY': os.getenv('AWS_SECRET_ACCESS_KEY', ''),
+            'AWS_STORAGE_BUCKET_NAME': os.getenv('AWS_STORAGE_BUCKET_NAME', '')
+        }
 
+secrets = get_secret()
+AWS_ACCESS_KEY_ID = secrets.get('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = secrets.get('AWS_SECRET_ACCESS_KEY')
+AWS_STORAGE_BUCKET_NAME = secrets.get('AWS_STORAGE_BUCKET_NAME')
+
+if not all([AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, AWS_STORAGE_BUCKET_NAME]):
+    print("Warning: AWS credentials not found. Using local static file storage.")
 
 
 secrets = get_secret()

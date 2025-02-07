@@ -13,7 +13,14 @@ import os
 from pathlib import Path
 import boto3
 import json
+from celery.schedules import crontab
 
+CELERY_BEAT_SCHEDULE = {
+    'scrape-ufc-events': {
+        'task': 'romplinarena.tasks.scrape_ufc_events',
+        'schedule': crontab(hour='*/12'),  # Runs every 12 hours
+    },
+}
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
